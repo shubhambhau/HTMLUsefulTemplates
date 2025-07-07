@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Download Page</title>
+  <style>
+    .code-block {
+      position: relative;
+      background-color: #2e2e2e;
+      padding: 15px;
+      border-radius: 8px;
+      font-family: monospace;
+      overflow-x: auto;
+      margin-top: 15px;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+    /* .copy-button {
+      margin-left: 10px;
+      padding: 5px 10px;
+      background-color: #008CBA;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      pointer-events: none;
+    } */
+    .input-box {
+      width: 100%;
+      padding: 8px;
+      font-family: monospace;
+      font-size: 14px;
+      border: none;
+      border-radius: 4px;
+      flex: 1;
+      background-color: #2e2e2e;
+      color: white;
+      pointer-events: none;
+      transition: background-color 0.3s;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="code-block" onclick="copyToClipboard('pipCommand1')">
+    <input type="text" id="pipCommand1" class="input-box" readonly value="ha-ha kar liya hoon tera bhi code copy tu itna tension mat le.'">
+    <button class="copy-button">Copy</button>
+  </div>
+
+  <div class="code-block" onclick="copyToClipboard('pipCommand2')">
+    <input type="text" id="pipCommand2" class="input-box" readonly value="ye code aabhi tum copy kar sakte ho jisse aapko copy code or command button banane main help hogi">
+    <button class="copy-button">Copy</button>
+  </div>
+
+  <div class="code-block" onclick="copyToClipboard('pipCommand3')">
+    <input type="text" id="pipCommand3" class="input-box" readonly value="agar aap commands related blog banana chahate ho to ye aapke liye sabse best code snippet hai.">
+    <button class="copy-button">Copy</button>
+  </div>
+
+  <script>
+    function copyToClipboard(inputId) {
+      const input = document.getElementById(inputId);
+      navigator.clipboard.writeText(input.value).then(() => {
+        container.classList.add('copied');
+        setTimeout(() => container.classList.remove('copied'), 200);
+      }).catch(err => {
+        input.select();
+        document.execCommand('copy');
+        container.classList.add('copied');
+        
+        setTimeout(() => container.classList.remove('copied'), 200);
+      });
+    }
+  </script>
+
+</body>
+</html>
